@@ -233,4 +233,4 @@ namespace Northwind
 
 Awesome! The second lesson is done.
 
-**Let's move onto [Lesson 4](../lesson3/README.md) and learn more about the `DocumentStore`.**
+**Let's move onto [Lesson 4](../lesson4/README.md) and learn more about the `DocumentStore`.**
