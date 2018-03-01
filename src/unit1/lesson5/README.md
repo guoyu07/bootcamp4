@@ -1,6 +1,6 @@
-# Unit 1, Lesson 4 - Loading documents
+# Unit 1, Lesson 5 - Loading documents
 
-You have been loading documents since [lesson 2](../lesson2/README.md), and now it is time to learn
+You have been loading documents since [lesson 3](../lesson3/README.md), and now it is time to learn
 what alternatives you have.
 
 ## Before loading, establishing a `Session`
@@ -39,46 +39,26 @@ resulting objects are the same.
 ````csharp
 using (var session = DocumentStoreHolder.Store.OpenSession())
 {
-    var p1 = session.Load<Product>("products/1");
-    var p2 = session.Load<Product>("products/1");
+    var p1 = session.Load<Product>("products/1-A");
+    var p2 = session.Load<Product>("products/1-A");
     Debug.Assert(ReferenceEquals(p1, p2));
 }
 ````
-
-## Loading documents passing a simpler id
-RavenDB ids are usually in form of `<name-of-collection>/<number>` (like `products/1`, `categories/7`, and so on).
-This makes it very easy to look at and debug. But sometimes, it would be easier to
-specify only the number.
-
-````csharp
-Product product = session.Load<Product>(1);
-````
-
-This code is really nice to use, especially in web scenarios. It would work because
-the default RavenDB conventions (remember from [lesson 3](../lesson3#introducing-conventions)?) infers the collection
-name from the type parameter name.
 
 
 ## Loading multiple documents with a single `Load` call
 Load can also read more than a single document at a time. For example:
 
 ````csharp
-Product[] products = session.Load<Product>(new [] {
+var products = session.Load<Product>(new [] {
     "products/1",
     "products/2",
     "products/3"
 });
 ````
 
-Because of the "collection inference", you can specify a simpler id.
-
-````csharp
-Product[] products = session.Load<Product>(1, 2, 3);
-````
-
-This will result in an array with three documents in it, **retrieved in a single
-remote call from the server**. The order in the array matches the order
-of the ids passed to the `Load` call.
+This will result in a dictionary with three documents in it, **retrieved in a single
+remote call from the server**. 
 
 ## Loading related documents in a single remote call
 
@@ -109,7 +89,7 @@ Considering you need to load the product and the related category, how would you
 write the code? Your first attempt could be something like that:
 
 ````csharp
-var p = session.Load<Product>(1);
+var p = session.Load<Product>("products/1-A");
 var c = session.Load<Category>(p.Category);
 ````
 
@@ -119,7 +99,7 @@ But, don't worry.
 ````csharp
 var p = session
     .Include<Product>(x => x.Category)
-    .Load(1);
+    .Load("products/1-a");
 
 var c = session.Load<Category>(p.Category);
 ````
@@ -127,7 +107,7 @@ var c = session.Load<Category>(p.Category);
 The `Include` session method changes the way RavenDB will process the request.
 Basically, it will:
 
-* Find a document with the key: `products/1`
+* Find a document with the key: `products/1-A`
 * Read its `Category` property value.
 * Find a document with that key.
 * Send both documents back to the client.
@@ -184,8 +164,8 @@ namespace OrdersExplorer
             {
                 var store = new DocumentStore
                 {
-                    Url = "http://localhost:8080",
-                    DefaultDatabase = "Northwind"
+                    Urls = new[] { "http://localhost:8080" },
+                    Database = "Northwind"
                 };
 
                 return store.Initialize();
@@ -259,7 +239,7 @@ private static void PrintOrder(int orderNumber)
             .Include<Order>(o => o.Company)
             .Include(o => o.Employee)
             .Include(o => o.Lines.Select(l => l.Product))
-            .Load(orderNumber);
+            .Load($"orders/{orderNumber}-A");
 
         if (order == null)
         {
@@ -285,8 +265,8 @@ private static void PrintOrder(int orderNumber)
 }
 ````
 
-## Great job! Onto Lesson 5!
+## Great job! Onto Lesson 6!
 
 Awesome! This *long* lesson is done and you know a lot about how to load documents from a RavenDB database.
 
-**Let's move onto [Lesson 5](../lesson5/README.md) and learn about querying.**
+**Let's move onto [Lesson 6](../lesson5/README.md) and learn about querying, now in C#.**

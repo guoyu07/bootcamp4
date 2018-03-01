@@ -1,9 +1,9 @@
 # Unit 1, Lesson 6 - Querying fundamentals
 
 Querying is a large part of what a database does, and RavenDB doesn't disappoint
-in this matter.
+in this matter. Right?
 
-In this lesson, you will learn the fundamentals of querying using RavenDB in C#.
+As you learned in the lesson 2, querying with RavenDB is really easy. In this lesson, you will learn the fundamentals of querying using RavenDB in C#.
 
 ## LINQ support via `Query` session method
 
@@ -112,9 +112,45 @@ private static void QueryCompanyOrders(int companyId)
     }
 }
 ````
-## Great job! Onto Lesson 6!
+
+## Wait, wait! Why not to use RQL?
+Using LINQ is natural for C# developers. But, what if you want to use the power of RQL from C#? 
+It is possible.
+
+```csharp
+rivate static void QueryCompanyOrders(int companyId)
+{
+    using (var session = DocumentStoreHolder.Store.OpenSession())
+    {
+        var orders = session.Advanced.RawQuery<Order>(
+            "from Orders " +
+            $"where Company=='companies/{companyId}-A'" +
+            "include Company"
+        );
+
+        var company = session.Load<Company>($"companies/{companyId}-A");
+
+        if (company == null)
+        {
+            WriteLine("Company not found.");
+            return;
+        }
+
+        WriteLine($"Orders for {company.Name}");
+
+        foreach (var order in orders)
+        {
+            WriteLine($"{order.Id} - {order.OrderedAt}");
+        }
+    }
+}
+``` 
+
+Did I say that I love RQL?!
+
+## Great job! Onto Lesson 7!
 
 Awesome! This was a short lesson. We will discuss a lot about querying when we
 start to talk about RavenDB indexes.
 
-**Let's move onto [Lesson 6](../lesson6/README.md) and learn how to create, change and delete documents.**
+**Let's move onto [Lesson 7](../lesson6/README.md) and learn how to create, change and delete documents.**
