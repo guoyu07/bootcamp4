@@ -101,4 +101,4 @@ documentation](https://ravendb.net/docs/article-page/latest/csharp/client-api/co
 
 Awesome! The fourth lesson is done and you know a lot about the `DocumentStore`.
 
-**Let's move onto [Lesson 5](../lesson4/README.md) and learn more about how to load documents.**
+**Let's move onto [Lesson 5](../lesson5/README.md) and learn more about how to load documents.**
