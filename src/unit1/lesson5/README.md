@@ -269,4 +269,4 @@ private static void PrintOrder(int orderNumber)
 
 Awesome! This *long* lesson is done and you know a lot about how to load documents from a RavenDB database.
 
-**Let's move onto [Lesson 6](../lesson5/README.md) and learn about querying, now in C#.**
+**Let's move onto [Lesson 6](../lesson6/README.md) and learn about querying, now in C#.**
