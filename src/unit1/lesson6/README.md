@@ -153,4 +153,4 @@ Did I say that I love RQL?!
 Awesome! This was a short lesson. We will discuss a lot about querying when we
 start to talk about RavenDB indexes.
 
-**Let's move onto [Lesson 7](../lesson6/README.md) and learn how to create, change and delete documents.**
+**Let's move onto [Lesson 7](../lesson7/README.md) and learn how to create, change and delete documents.**
