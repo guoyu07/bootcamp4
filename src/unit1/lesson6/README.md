@@ -1,4 +1,4 @@
-# Unit 1, Lesson 6 - Querying fundamentals
+# Unit 1, Lesson 6 - Querying fundamentals in the C# side
 
 Querying is a large part of what a database does, and RavenDB doesn't disappoint
 in this matter. Right?

@@ -1,39 +1,40 @@
 Unit 1, Lesson 1 – Getting Started
 ==================================
 
-It’s time to start learning RavenDB 4. Even if you know previous versions of
-RavenDB, you will probably get good surprises and learn some new tricks in this
-bootcamp.
+Working with databases do not have to be boring. RavenDB makes your life easier. 
+Enough of spending time thinking about how to accommodate your data in rows and 
+columns. 
 
-In this lesson, you will learn how to install and start using it on your
-computer.
+
+You already know RavenDB?! No problem. You will get good surprises and learn some 
+new tricks in this Bootcamp.
+
+Let's start simple. In this lesson, you will learn how to install and start using 
+it on your computer.
 
 Getting RavenDB up and running
 ------------------------------
 
-In this bootcamp, we are assuming that you are a developer trying to get an
-instance of RavenDB up and running on your computer. We will not discuss how to
-deal with production scenarios (at least, for a while). If you need information
-about how to setup RavenDB for production, we recommend you to read the online
-documentation.
+First things first! Let's assume that you are a developer who wants to have RavenDB 
+running on your computer. Right?! For production scenarios, I recommend you to check
+other online resources.
 
 ### Exercise: Running on the live demo instance
 
 Don’t want to download bits and bytes? No problem!
 
-Without installing anything, you can point your browser to
-<http://live-test.ravendb.net> and access the public demo instance that we have
-available.
+Don’t want to download bits and bytes? No problem! Point your browser to our public 
+demo at <http://live-test.ravendb.net>.
 
-Using the live demo version is useful for quick checks and verifications, but it
-isn’t meant for anything more serious than that. Obviously, all data in the live
-instance is public, and there are no guarantees about availability. We use this
-instance to try out the latest versions, so you should consider that.
+Feel free to use our live demo for quick checks and verifications. But, you know you 
+shouldn't use it for anything more serious, right? All data in the live instance is 
+public! There are no guarantees about availability.
 
 ### Exercise: Running on Docker
 
-Using docker is a fast way to start using RavenDB on your computer. If you have
-Docker installed, all you need to do is run the following command:
+
+Now you can get RavenDB up and running with Docker. If you have Docker installed,  
+run the following command:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 docker run -e UNSECURED_ACCESS_ALLOWED=PublicNetwork -p 8080:8080 ravendb/ravendb
@@ -44,19 +45,17 @@ host it. Note that we run it in developer mode, without any authentication.
 
 ### Exercise: Running on Windows, Linux or MacOS
 
-To set up RavenDB on Windows, Linux or MacOS, you will need first to download it
-from <http://ravendb.net/download> (selecting the right distribution for your
-platform). You will get a compressed file that you can extract to a folder of
-your preference.
+
+If you want to set up RavenDB on Windows, Linux, or MacOS, you will need to download 
+it from  <http://ravendb.net/download>. Make sure you are selecting the right 
+distribution for your platform. You will get a compressed file that you can extract to 
+a folder of your preference.
 
 Go ahead and do it, we can wait.
 
-Done?! Now, all you need to do is run the `./Server/Raven.Server.exe` located
-in RavenDB folder. This will start a console application in interactive mode,
-inside a console application. Also, the script will open your browser and start
-the RavenDB Management Studio
-
--   Put RavenDB image here
+Done?! Now, run the `./Server/Raven.Server.exe` located in RavenDB folder. This will start 
+a console application in interactive mode, inside a console application. Also, the script
+ will open your browser and start the RavenDB Management Studio.
 
 By default, RavenDB will try to use `http://localhost:8080` as its endpoint.
 But, if something is already using port 8080, RavenDB will fail to start and

@@ -1,5 +1,5 @@
-Unit 1, Lesson 2 – It's querying time
-=====================================
+Unit 1, Lesson 2 – It's querying time!
+======================================
 
 In the previous lesson, you learned how to install RavenDB on your computer,
 create a database and load sample data. Also, you learned some fundamental

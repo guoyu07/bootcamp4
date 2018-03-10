@@ -92,8 +92,8 @@ namespace Northwind
         {
             var documentStore = new DocumentStore
             {
-                Url = "http://localhost:8080",
-                DefaultDatabase = "Northwind"
+                Urls = new[] { "http://localhost:8080" },
+                Database = "Northwind"
             };
 
             documentStore.Initialize();
@@ -229,8 +229,8 @@ namespace Northwind
 }
 ````
 
-## Great job! Onto Lesson 3!
+## Great job! Onto Lesson 4!
 
-Awesome! The second lesson is done.
+Awesome! The third lesson is done.
 
 **Let's move onto [Lesson 4](../lesson4/README.md) and learn more about the `DocumentStore`.**
