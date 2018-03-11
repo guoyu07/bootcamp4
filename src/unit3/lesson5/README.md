@@ -118,5 +118,5 @@ You just learned how to use the Changes API.
 
 This is an extremely powerful feature that enables a whole host of interesting scenarios.
 
-**Let's move onto [Lesson 5](../lesson5/README.md).**
+**Let's move onto [Lesson 6](../lesson6/README.md).**
 
