@@ -48,7 +48,31 @@ On the left panel, select the Settings section and then Document Revisions.
 
 ![](media/j3j2jdk3ksdk2kfdk2kk23v23.PNG)
 
-You can test revisions editing a document directly on the Studio:
+You can test revisions editing a document directly on the Studio. Edit any document and see the list of revisions.
+
+![](media/revisions.png)
+
+## Retrieving revisions from a document
+
+Retrieving revisions for a document is pretty simple.
+
+```csharp
+static void Main(string[] args)
+{
+    using (var session = DocumentStoreHolder.Store.OpenSession())
+    {
+        var revisions = session.Advanced.Revisions
+            .GetFor<Employee>("employee/7-a");
+
+        foreach (var revision in revisions)
+        {
+            // process revision
+        }
+    }
+}
+```
+
+Nice!
 
 ## Great job! Onto Lesson 2!
 
