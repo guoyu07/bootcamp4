@@ -13,7 +13,8 @@ You can choose to keep track of the last N revisions. Also,  if necessary, you 
 ## How to enable Revisions?
 
 You can configure the revisions feature using the Studio: 
-![](media/enable_revisions.png)
+
+![](media/enabling_revisions.png)
 
 When activated, by default, RavenDB will track history for all documents. Also, by default, RavenDB will never purge old revisions. 
 
@@ -43,8 +44,9 @@ On the left panel, select the Settings section and then Document Revisions.
 * Select the Employees collection.
 * Enable `Limit # of revisions` and inform that you want to save 10 revisions.
 * Click on `OK`.
-![](media/j3j2jdk3ksdk2kfdk2kk23v23.PNG)
 * Click on `Save`
+
+![](media/j3j2jdk3ksdk2kfdk2kk23v23.PNG)
 
 You can test revisions editing a document directly on the Studio:
 
