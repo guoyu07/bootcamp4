@@ -1,4 +1,4 @@
-# Unit 3, Lesson 2 - Getting started with Operations and Commands!
+# Unit 3, Lesson 3 - Getting started with Operations and Commands!
 
 This has been a long journey, right? You already know the basics of RavenDB. But
 there are a lot of specifics that can help you to create amazing solutions.
