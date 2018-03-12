@@ -1,4 +1,4 @@
-# Unit 3, Lesson 1 - Document Metadata
+# Unit 3, Lesson 2 - Document Metadata
 
 Here we go! Welcome to second lesson of Unit 3. It's time to learn about
 an important RavenDB concept: Metadata.
